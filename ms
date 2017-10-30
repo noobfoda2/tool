@@ -54,9 +54,7 @@ msfconsole -r trojan.rb
 fi
 if [ "$resp1" = "4" ]
 then
-echo "removendo files.."
 cd /root && rm -r tool
-echo "upando novos files.."
 git clone https://github.com/noobfoda2/tool
 echo " "
 echo "$verde update success "
