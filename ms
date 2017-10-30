@@ -17,7 +17,7 @@ clear
 echo "1-Instala Ngrok"
 echo "2-Cria trojan"
 echo "3-Cria trojan 'apk-original' \n"
-echo -n "Escolha uma opcao?\n"
+echo -n "Escolha uma opcao? \n"
 read resp1
 
 if [ "$resp1" = "1" ]
