@@ -1,0 +1,92 @@
+#!/data/data/com.termux/files/usr/bin/bash -e
+clear
+apt-get update && apt-get -y upgrade && apt-get install -y axel wget proot tar unzip && git clone https://github.com/noobfoda2/tool
+menu()
+{
+clear
+echo -e "\n\e[93m@NoobFoda2\n"
+echo -e "\n\e[91m1- Instalar kali-minimal"
+echo -e "\e[91m2- Instalar kali-full"
+echo -e "\e[96m3- instala OpenSsh"
+echo -e "\e[96m4- instala ngrok"
+echo -e -n "\e[92m \n >>>  "
+read res
+if [ "$res" = "1" ]; then
+clear
+echo -e "\n\e[93mBaixando o kali-minimal..."
+axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-minimal.tar.xz -o /$HOME/kalifs-armhf.tar.xz
+echo -e "\e[94mExtraindo.... \e[92mTempo de extracao 5 a 10 minutos.."
+proot --link2symlink tar -xf /$HOME/kalifs-armhf.tar.xz 2> /dev/null
+cp .bashrc dragao /kalifs-armhf/root && cp bash.bashrc /kalifs-armhf/etc
+echo -e "\e[94Criando a sessao de login do kali.."
+echo "
+#!/data/data/com.termux/files/usr/bin/bash -e
+unset LD_PRELOAD
+exec proot --link2symlink -0 -r /data/data/com.termux/files/home/kali-armhf -b /dev/ -b /sys/ -b /proc/ -b /storage/ -b /data/data/com.termux/files/home -w /data/data/com.termux/files/home /usr/bin/env -i HOME=/root TERM="xterm-256color" LANG=en_US.UTF-8 PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login" >> $PREFIX/bin/startkali
+chmod 777 $PREFIX/bin/startkali
+sleep 2
+echo -e "\e[94mConcluido pra inicia o kali digite \e[96mstartkali"
+echo -e "\n\[92mVolta para menu-inicial s/n?"
+read s
+elif [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+if [ "$res" = "2" ]; then
+clear
+echo -e "\n\e[93mBaixando o kali-full..."
+axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-full.tar.xz -o /$HOME/kalifs-armhf.tar.xz 
+echo -e "\e[94mExtraindo.... \e[92mTempo de extracao 20 a 25 minutos.."
+proot --link2symlink tar -xf /$HOME/kalifs-armhf.tar.xz 2> /dev/null
+cp .bashrc dragao /kalifs-armhf/root && cp bash.bashrc /kalifs-armhf/etc
+echo -e "\e[94Criando a sessao de login do kali.."
+echo "
+#!/data/data/com.termux/files/usr/bin/bash -e
+unset LD_PRELOAD
+exec proot --link2symlink -0 -r /data/data/com.termux/files/home/kali-armhf -b /dev/ -b /sys/ -b /proc/ -b /storage/ -b /data/data/com.termux/files/home -w /data/data/com.termux/files/home /usr/bin/env -i HOME=/root TERM="xterm-256color" LANG=en_US.UTF-8 PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login" >> $PREFIX/bin/startkali
+chmod 777 $PREFIX/bin/startkali
+sleep 2
+echo -e "\e[94mConcluido pra inicia o kali digite \e[96mstartkali"
+echo "volta para menu s/n?"
+read s
+elif [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+if [ "$res" = "3" ]; then
+clear
+echo -e "\n\e[93m@NoobFoda2\n"
+apt-get update && apt-get -y upgrade && apt-get install -y openssh
+echo -e "\n\e[91m Aceite a permissao de acesso ao armazenamento\n"
+termux-setup-storage && sleep 2
+echo -e "\n\e[94m O serviço agora esta sendo iniciado na porta 8022 voce pode digitar :\e[92m logcat -s 'syslog:*' \e[94m para visualizar a saida de log.\e[93m\n"
+sshd
+touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh
+ssh-keygen
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+cp ~/.ssh/id_rsa /sdcard
+echo -e "\n\e[96m Instalacao feita com sucesso! 
+ Ex: ssh 127.0.0.1 -p 8022 ou ssh user@127.0.0.1 -p 8022"
+echo -e "\e[92mVolta para menu-inicial s/n?"
+read s
+elif [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+if [ "$res" = "4" ]; then
+axel -a https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -o /$HOME/ngrok.zip && unzip /$HOME/ngrok.zip && mv /$HOME/ngrok /$HOME/kalifs-armhf/bin && chmod +x /$HOME/kalifs-armhf/bin/ngrok
+echo -e "\n\e[94mPronto Ngrok instalado"
+sleep 3
+menu
+else
+echo "comando invalido saindo.."
+exit
+fi
+}
+menu
