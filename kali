@@ -16,7 +16,7 @@ clear
 apt-get update && apt-get -y upgrade && apt-get install -y wget git tar proot axel unzip
 clear
 echo -e "\n\e[93mBaixando o kali-minimal..."
-wget -c https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-minimal.tar.xz
+axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-minimal.tar.xz
 echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 5 a 10 minutos.."
 proot --link2symlink tar -xf kalifs-armhf-minimal.tar.xz 2> /dev/null
 mv kali-armhf /$HOME
@@ -44,7 +44,7 @@ clear
 apt-get update && apt-get -y upgrade && apt-get install -y wget git tar proot axel unzip
 clear
 echo -e "\n\e[93mBaixando o kali-full..."
-wget -c https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-full.tar.xz
+axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-full.tar.xz
 echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 20 a 25 minutos.."
 proot --link2symlink tar -xf kalifs-armhf-full.tar.xz 2> /dev/null
 mv kali-armhf /$HOME
