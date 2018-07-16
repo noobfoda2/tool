@@ -7,8 +7,8 @@
 <h2> Kali-Nethunter/Metasploit-Framework/Ngrok/OpenSsh/ </h2>
 <h4>
 script feito pra automatiza a instalação do nethunter no 'Termux sem Root' </4>
-<4>
-foi baseado no script de 'Hax4us' </4>
+
+<3> foi baseado no script de Hax4us </3>
 
 <4> https://wiki.termux.com/wiki/Kali_Nethunter </4>
 
