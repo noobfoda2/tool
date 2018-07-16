@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
 clear
-apt-get update && apt-get -y upgrade && apt-get install -y axel wget proot tar unzip && git clone https://github.com/noobfoda2/tool
+apt-get update && apt-get -y upgrade && apt-get install -y axel wget proot tar unzip
 menu()
 {
 clear
