@@ -20,7 +20,7 @@ axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-minimal.
 echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 5 a 10 minutos.."
 proot --link2symlink tar -xf kalifs-armhf-minimal.tar.xz 2> /dev/null
 mv kali-armhf /$HOME
-cp .bashrc dragao /$HOME/kali-armhf && cp bash.bashrc /$HOME/kali-armhf
+cp dragao /$HOME/kali-armhf/root && cp bash.bashrc /$HOME/kali-armhf/etc
 rm kalifs-armhf-minimal.tar.xz
 clear
 echo -e "\e[94mCriando a sessao de login do kali.."
@@ -49,7 +49,7 @@ axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-full.tar
 echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 20 a 25 minutos.."
 proot --link2symlink tar -xf kalifs-armhf-full.tar.xz 2> /dev/null
 mv kali-armhf /$HOME
-cp .bashrc dragao /$HOME/kali-armhf && cp bash.bashrc /$HOME/kali-armhf
+cp dragao /$HOME/kali-armhf/root && cp bash.bashrc /$HOME/kali-armhf/etc
 rm kalifs-armhf-full.tar.xz
 clear && clear
 echo -e "\e[94Criando a sessao de login do kali.."
