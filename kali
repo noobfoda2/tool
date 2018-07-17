@@ -38,6 +38,7 @@ else
 echo "saindo.."
 exit 
 fi
+;;
 "2")
 clear
 echo -e "\n\e[93m@NoobFoda2\n"
