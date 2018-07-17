@@ -8,19 +8,18 @@
 <h4>
 script feito pra automatiza a instalação do nethunter no 'Termux sem Root' </4>
 
-<3> foi baseado no script de Hax4us </3>
+<h3> foi baseado no script de Hax4us </h3>
 
-<4> https://wiki.termux.com/wiki/Kali_Nethunter </4>
+<h4> https://wiki.termux.com/wiki/Kali_Nethunter </h4>
 
-<4> modo de usar </4>
+<h4> modo de usar </h4>
 
-<4> pkg install git </4>
+<h4> pkg install git </h4>
+<h4> git clone https://github.com/noobfoda2/tool </h4>
 
-<4> git clone https://github.com/noobfoda2/tool <\4>
+<h4> cd tool && chmod +x * </4>
 
-<4> cd tool && chmod +x * </4>
-
-<4> bash kali </4>
+<h4> bash kali </h4>
 
 <h2> MENU !</h2>
 
@@ -45,7 +44,7 @@ script feito pra automatiza a instalação do nethunter no 'Termux sem Root' </4
 
 
 
-<h2>KALI-NETHUNTER<\h2>
+<h2> KALI-NETHUNTER  </h2>
 
 
 ![img](http://i.imgur.com/Amc1bm7.jpg)
