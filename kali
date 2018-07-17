@@ -5,9 +5,8 @@ menu()
 clear
 echo -e "\n\e[93m@NoobFoda2\n"
 echo -e "\n\e[91m1- Instalar kali-minimal"
-echo -e "\e[91m2- Instalar kali-full"
-echo -e "\e[96m3- instala OpenSsh"
-echo -e "\e[92m4- Sair"
+echo -e "\e[96m2- instala OpenSsh"
+echo -e "\e[92m3- Sair"
 echo -e -n "\e[92m \n >>>  "
 read res
 case $res in
@@ -16,7 +15,7 @@ clear
 apt-get update && apt-get -y upgrade && apt-get install -y wget git tar proot axel unzip
 clear
 echo -e "\n\e[93mBaixando o kali-minimal..."
-axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-minimal.tar.xz
+axel -a https://build.nethunter.com/kalifs/release/kalifs-armhf-minimal.tar.xz
 echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 5 a 10 minutos.."
 proot --link2symlink tar -xf kalifs-armhf-minimal.tar.xz 2> /dev/null
 mv kali-armhf /$HOME
@@ -39,37 +38,7 @@ else
 echo "saindo.."
 exit 
 fi
-;;
 "2")
-clear
-apt-get update && apt-get -y upgrade && apt-get install -y wget git tar proot axel unzip
-clear
-echo -e "\n\e[93mBaixando o kali-full..."
-axel -a https://build.nethunter.com/kalifs/kalifs-20171118/kalifs-armhf-full.tar.xz
-echo -e "\n\n\e[94mExtraindo.... \e[92mTempo de extracao 20 a 25 minutos.."
-proot --link2symlink tar -xf kalifs-armhf-full.tar.xz 2> /dev/null
-mv kali-armhf /$HOME
-cp dragao /$HOME/kali-armhf/root && cp bash.bashrc /$HOME/kali-armhf/etc && cp kali2 /$HOME/kali-armhf/root
-rm kalifs-armhf-full.tar.xz
-clear && clear
-echo -e "\e[94Criando a sessao de login do kali.."
-echo "
-#!/data/data/com.termux/files/usr/bin/bash -e
-unset LD_PRELOAD
-exec proot --link2symlink -0 -r /data/data/com.termux/files/home/kali-armhf -b /dev/ -b /sys/ -b /proc/ -b /storage/ -b /data/data/com.termux/files/home -w /data/data/com.termux/files/home /usr/bin/env -i HOME=/root TERM="xterm-256color" LANG=en_US.UTF-8 PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login" >> $PREFIX/bin/startkali
-chmod 777 $PREFIX/bin/startkali
-sleep 2
-echo -e "\n\e[94mConcluido pra inicia o kali digite \e[96mstartkali"
-echo -e "\n\e[92mVolta para menu-inicial s/n?"
-read s
-if [ "$s" = "s" ]; then 
-menu
-else
-echo "saindo.."
-exit 
-fi
-;;
-"3")
 clear
 echo -e "\n\e[93m@NoobFoda2\n"
 apt-get update && apt-get -y upgrade && apt-get install -y openssh
@@ -92,7 +61,7 @@ echo "saindo.."
 exit 
 fi
 ;;
-"4")
+"3")
 if [ "$res" = "5" ]; then
 exit
 fi
