@@ -1,0 +1,89 @@
+#!/data/data/com.termux/files/usr/bin/bash -e
+clear
+menu()
+{
+clear
+echo -e "\n\e[93m@NoobFoda2\n"
+echo -e "\e[93m1- Instalar Metasploit-Framework"
+echo -e "\e[93m2-Instalar Ngrok"
+echo -e "\e[96 m3- instalar OpenSsh"
+echo -e "\e[92m4- Sair"
+echo -e -n "\e[92m \n >>>  "
+read res
+case $res in
+"1")
+clear
+apt-get update && apt-get install -y autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev postgresql readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config wget make ruby-dev libgrpc-dev  ncurses-utils ncurses unzip zip tar termux*
+curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.1.tar.gz
+tar -xf /$HOME/4.17.1.tar.gz
+mv metasploit-framework-4.17.1 metasploit-framework && cd metasploit-framework
+sed '/rbnacl/d' -i Gemfile.lock
+sed '/rbnacl/d' -i metasploit-framework.gemspec
+gem install bundler
+isNokogiri=$(gem list nokogiri -i)
+isGrpc=$(gem list grpc -i)
+sed 's|nokogiri (1.*)|nokogiri (1.8.0)|g' -i Gemfile.lock
+gem install nokogiri -v'1.8.0' -- --use-system-libraries
+bundle install -j5
+$PREFIX/bin/find -type f -executable -exec termux-fix-shebang \{\} \;
+rm ./modules/auxiliary/gather/http_pdf_authors.rb
+ln -s /data/data/com.termux/files/home/metasploit-framework/msfconsole /data/data/com.termux/files/usr/bin/
+ln -s /data/data/com.termux/files/metasploit-framework/msfvenom /data/data/com.termux/files/usr/bin/
+termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.4.0/gems/pg-0.20.0/lib/pg_ext.so
+cd metasploit-framework/config
+curl https://pastebin.com/raw/QGVHwh0M >> database.yml
+mkdir -p $PREFIX/var/lib/postgresql
+initdb $PREFIX/var/lib/postgresql
+pg_ctl -D $PREFIX/var/lib/postgresql start
+createuser msf
+createdb msf_database
+rm 4.17.1.tar.gz
+gem install bundle;gem install bundler;pip2 install bundler;bundle install -j5;bundle update;bundle update nokogiri
+;;
+"2")
+clear
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip;unzip ngrok;mv ngrok;$PREFIX/bin;chmod +x $PREFIX/bin/ngrok
+echo -n -e " \e[93mCole sua Chave Aki :"
+read c
+ngrok authtoken $c
+echo -e "\e[92mConcluindo com sucesso"
+echo -e "\e[92mVolta para menu-inicial s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+;;
+"3")
+clear
+echo -e "\n\e[93m@NoobFoda2\n"
+apt-get update && apt-get -y upgrade && apt-get install -y openssh
+echo -e "\n\e[91m Aceite a permissao de acesso ao armazenamento\n"
+termux-setup-storage && sleep 2
+echo -e "\n\e[94m O serviço agora esta sendo iniciado na porta 8022 voce pode digitar :\e[92m logcat -s 'syslog:*' \e[94m para visualizar a saida de log.\e[93m\n"
+sshd
+touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh
+ssh-keygen
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+cp ~/.ssh/id_rsa /sdcard
+echo -e "\n\e[96m Instalacao feita com sucesso! 
+ Ex: ssh 127.0.0.1 -p 8022 ou ssh user@127.0.0.1 -p 8022"
+echo -e "\e[92mVolta para menu-inicial s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+;;
+"4")
+if [ "$res" = "5" ]; then
+exit
+fi
+;;
+esac
+}
+menu
