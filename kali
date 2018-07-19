@@ -4,9 +4,9 @@ menu()
 {
 clear
 echo -e "\n\e[93m@NoobFoda2\n"
-echo -e "\e[93m1- Instalar Metasploit-Framework"
-echo -e "\e[93m2-Instalar Ngrok"
-echo -e "\e[96 m3- instalar OpenSsh"
+echo -e "\e[91m1- Instalar Metasploit-Framework"
+echo -e "\e[91m2-Instalar Ngrok"
+echo -e "\e[96m3- instalar OpenSsh"
 echo -e "\e[92m4- Sair"
 echo -e -n "\e[92m \n >>>  "
 read res
