@@ -4,9 +4,9 @@ menu()
 {
 clear
 echo -e "\n\e[93m@NoobFoda2\n"
-echo -e "\e[91m1- Instalar Metasploit-Framework"
+echo -e "\e[91m1-Instalar Metasploit-Framework"
 echo -e "\e[91m2-Instalar Ngrok"
-echo -e "\e[96m3- instalar OpenSsh"
+echo -e "\e[96m3-Instalar OpenSsh"
 echo -e "\e[92m4- Sair"
 echo -e -n "\e[92m \n >>>  "
 read res
@@ -15,8 +15,8 @@ case $res in
 clear
 apt-get update && apt-get install -y autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev postgresql readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config wget make ruby-dev libgrpc-dev  ncurses-utils ncurses unzip zip tar termux*
 curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.1.tar.gz
-tar -xf 4.17.1.tar.gz
-mv metasploit-framework-4.17.1 metasploit-framework && mv metasploit-framework /$HOME && cd /$HOME/metasploit-framework
+tar -xf 4.17.2.tar.gz
+mv metasploit-framework-4.17.2 metasploit-framework && mv metasploit-framework /$HOME && cd /$HOME/metasploit-framework
 sed '/rbnacl/d' -i Gemfile.lock
 sed '/rbnacl/d' -i metasploit-framework.gemspec
 gem install bundler
