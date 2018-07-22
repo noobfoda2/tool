@@ -14,9 +14,9 @@ case $res in
 "1")
 clear
 apt-get update && apt-get install -y autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev postgresql readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config wget make ruby-dev libgrpc-dev  ncurses-utils ncurses unzip zip tar termux*
-curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.2.tar.gz
-tar -xf 4.17.2.tar.gz
-mv metasploit-framework-4.17.2 metasploit-framework && mv metasploit-framework /$HOME && cd /$HOME/metasploit-framework
+curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.1.tar.gz
+tar -xf 4.17.1.tar.gz
+mv metasploit-framework-4.17.1 metasploit-framework && mv metasploit-framework /$HOME && cd /$HOME/metasploit-framework
 sed '/rbnacl/d' -i Gemfile.lock
 sed '/rbnacl/d' -i metasploit-framework.gemspec
 gem install bundler
@@ -51,8 +51,8 @@ fi
 ;;
 "2")
 clear
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip;unzip ngrok;mv ngrok;$PREFIX/bin;chmod +x $PREFIX/bin/ngrok
-echo -n -e " \e[93mCole sua Chave Aki :"
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip;unzip ngrok.zip;mv ngrok $PREFIX/bin;chmod +x $PREFIX/bin/ngrok;rm ngrok*;clear
+echo -n -e "\n\e[93mCole sua Chave Aki :"
 read c
 ngrok authtoken $c
 echo -e "\e[92mConcluindo com sucesso"
