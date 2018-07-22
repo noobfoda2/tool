@@ -14,7 +14,7 @@ case $res in
 "1")
 clear
 apt-get update && apt-get install -y autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev postgresql readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config wget make ruby-dev libgrpc-dev  ncurses-utils ncurses unzip zip tar termux*
-curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.1.tar.gz
+curl -LO https://github.com/rapid7/metasploit-framework/archive/4.17.2.tar.gz
 tar -xf 4.17.2.tar.gz
 mv metasploit-framework-4.17.2 metasploit-framework && mv metasploit-framework /$HOME && cd /$HOME/metasploit-framework
 sed '/rbnacl/d' -i Gemfile.lock
