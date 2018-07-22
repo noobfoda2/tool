@@ -30,16 +30,25 @@ rm ./modules/auxiliary/gather/http_pdf_authors.rb
 ln -s /$HOME/metasploit-framework/msfconsole $PREFIX/bin/
 ln -s /$HOME/metasploit-framework/msfvenom $PREFIX/bin/
 termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.4.0/gems/pg-0.20.0/lib/pg_ext.so
-cd metasploit-framework/config
+cd config
 curl https://pastebin.com/raw/QGVHwh0M >> database.yml
 mkdir -p $PREFIX/var/lib/postgresql
 initdb $PREFIX/var/lib/postgresql
 pg_ctl -D $PREFIX/var/lib/postgresql start
 createuser msf
 createdb msf_database
-rm 4.17.2.tar.gz
+rm /$HOME/4.17.2.tar.gz && cd /$HOME/metasploit-framework
 gem install bundle;gem install bundler;pip2 install bundler;bundle install -j5;bundle update;bundle update nokogiri
 ;;
+echo -e "\e[92mConcluindo com sucesso"
+echo -e "\e[92mVolta para menu-inicial s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
 "2")
 clear
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip;unzip ngrok;mv ngrok;$PREFIX/bin;chmod +x $PREFIX/bin/ngrok
