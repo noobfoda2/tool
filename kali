@@ -39,7 +39,6 @@ createuser msf
 createdb msf_database
 rm /$HOME/4.17.2.tar.gz && cd /$HOME/metasploit-framework
 gem install bundle;gem install bundler;pip2 install bundler;bundle install -j5;bundle update;bundle update nokogiri
-;;
 echo -e "\e[92mConcluindo com sucesso"
 echo -e "\e[92mVolta para menu-inicial s/n?"
 read s
@@ -49,6 +48,7 @@ else
 echo "saindo.."
 exit 
 fi
+;;
 "2")
 clear
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip -O ngrok.zip;unzip ngrok;mv ngrok;$PREFIX/bin;chmod +x $PREFIX/bin/ngrok
