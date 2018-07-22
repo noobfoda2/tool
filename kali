@@ -27,8 +27,8 @@ gem install nokogiri -v'1.8.0' -- --use-system-libraries
 bundle install -j5
 $PREFIX/bin/find -type f -executable -exec termux-fix-shebang \{\} \;
 rm ./modules/auxiliary/gather/http_pdf_authors.rb
-ln -s /data/data/com.termux/files/home/metasploit-framework/msfconsole /data/data/com.termux/files/usr/bin/
-ln -s /data/data/com.termux/files/metasploit-framework/msfvenom /data/data/com.termux/files/usr/bin/
+ln -s /$HOME/metasploit-framework/msfconsole $PREFIX/bin/
+ln -s /$HOME/metasploit-framework/msfvenom $PREFIX/bin/
 termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.4.0/gems/pg-0.20.0/lib/pg_ext.so
 cd metasploit-framework/config
 curl https://pastebin.com/raw/QGVHwh0M >> database.yml
@@ -37,7 +37,7 @@ initdb $PREFIX/var/lib/postgresql
 pg_ctl -D $PREFIX/var/lib/postgresql start
 createuser msf
 createdb msf_database
-rm 4.17.1.tar.gz
+rm 4.17.2.tar.gz
 gem install bundle;gem install bundler;pip2 install bundler;bundle install -j5;bundle update;bundle update nokogiri
 ;;
 "2")
