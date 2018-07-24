@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
-clear;echo -e " \e[5;92m";clear;echo;pkg install axel proot tar;clear
+clear;echo -e " \e[5;92m";clear;echo;pkg install axel proot tar -y;clear
 menu()
 {
 clear
