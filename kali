@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
-clear
+clear;echo -e " \e[5;92m";clear;echo;pkg install axel proot tar;clear
 menu()
 {
 clear
@@ -11,7 +11,6 @@ echo -ne "\e[5;92m \n >>>  "
 read res
 case $res in
 "1")
-echo -e " \e[5;92m";clear;echo;pkg install axel proot tar;clear
 echo -e "\n\e[5;93Baixando Kali-Basic..."
 echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB \n"
 axel -a https://download1073.mediafire.com/t9gytd8oshyg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2 >> /dev/null
