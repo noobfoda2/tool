@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
 clear
-apt-get install -y tar proot axel 
+apt-get install -y tar proot wget 
 menu()
 {
 clear
@@ -15,7 +15,7 @@ case $res in
 clear
 echo -e "\n\e[5;93m Baixando Kali-Basic..."
 echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB \n"
-axel -a https://download1073.mediafire.com/t9gytd8oshyg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2
+wget -c http://download1394.mediafire.com/owgvpr0vrewg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2
 echo -e "\n\e[5;92m  Download Concluindo.."
 sleep 2 && clear
 echo -e -n "\n\e[5;93mExtraindo !! Tempo do Processo de 5 a 10 minutos..\n"
@@ -29,7 +29,7 @@ unset LD_PRELOAD
 exec proot --link2symlink -0 -r /data/data/com.termux/files/home/kali-armhf -b /dev/ -b /sys/ -b /proc/ -b /storage/ -b /data/data/com.termux/files/home -w /data/data/com.termux/files/home /usr/bin/env -i HOME=/root TERM="xterm-256color" LANG=en_US.UTF-8 PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login" >> $PREFIX/bin/startkali
 chmod 777 $PREFIX/bin/startkali
 echo -e "\n\e[5;92m Concluindo com sucesso"
-echo -e "\n\[5;96m Volta para menu-inicial s/n?"
+echo -e "\n\e[5;96m Volta para menu-inicial s/n?"
 read s
 if [ "$s" = "s" ]; then 
 menu
