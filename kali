@@ -35,8 +35,7 @@ menu
 else
 echo "saindo.."
 exit 
-fi
-if [ "$res" = "2" ]; then
+elif [ "$res" = "2" ]; then
 clear
 apt-get update && apt-get -y upgrade && apt-get install -y openssh && sleep 3 && clear
 echo -e "\n\e[5;91m Aceite a permissao de acesso ao armazenamento\n"
@@ -56,8 +55,7 @@ menu
 else
 echo "saindo.."
 exit 
-fi
-if [ "$res" = "3" ]; then
+elif [ "$res" = "3" ]; then
 exit
 fi
 }
