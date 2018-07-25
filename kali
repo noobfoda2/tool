@@ -1,0 +1,64 @@
+#!/data/data/com.termux/files/usr/bin/bash -e
+clear
+
+menu()
+{
+clear
+echo -e "\n\e[93m@NoobFoda2\n"
+echo -e "\n\e[5;91m   1- Instalar kali-NetHunter-Basic"
+echo -e "\e[5;96m   2- instalar OpenSsh"
+echo -e "\e[5;92m   3- Sair"
+echo -e -n "\e[5;92m \n >>>  "
+read res
+if [ "$res" = "1" ]; then
+clear && apt-get install -y tar proot axel 
+echo -e "\n\e[5;93m Baixando Kali-Basic..."
+echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB \n"
+axel -a https://download1073.mediafire.com/t9gytd8oshyg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2 >> /dev/null
+echo -e "\n\e[5;92m  Download Concluindo.."
+sleep 2 && clear
+echo -e -n "\n\e[5;93mExtraindo !! Tempo do Processo de 5 a 10 minutos..\n"
+tar -vxjpf  kali-basic.tar.bz2 >> /dev/null
+echo -e "\n\e[5;92m Criando a sessao de login do kali.."
+sleep 2 && clear
+echo "
+#!/data/data/com.termux/files/usr/bin/bash -e
+unset LD_PRELOAD
+exec proot --link2symlink -0 -r /data/data/com.termux/files/home/kali-armhf -b /dev/ -b /sys/ -b /proc/ -b /storage/ -b /data/data/com.termux/files/home -w /data/data/com.termux/files/home /usr/bin/env -i HOME=/root TERM="xterm-256color" LANG=en_US.UTF-8 PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login" >> $PREFIX/bin/startkali
+chmod 777 $PREFIX/bin/startkali
+echo -e "\n\e[5;92m Concluindo com sucesso"
+echo -e "\n\[5;92mVolta para menu-inicial s/n?"
+read s
+elif [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+if [ "$res" = "2" ]; then
+clear
+echo -e "\n\e[5;93m@NoobFoda2\n"
+apt-get update && apt-get -y upgrade && apt-get install -y openssh
+echo -e "\n\e[5;91m Aceite a permissao de acesso ao armazenamento\n"
+termux-setup-storage && sleep 2
+echo -e "\n\e[5;94m O serviço agora esta sendo iniciado na porta 8022 voce pode digitar :\e[92m logcat -s 'syslog:*' \e[94m para visualizar a saida de log.\e[93m\n"
+sshd
+touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh
+ssh-keygen
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+cp ~/.ssh/id_rsa /sdcard
+echo -e "\n\e[5;96m Instalacao feita com sucesso! 
+ Ex: ssh 127.0.0.1 -p 8022 ou ssh user@127.0.0.1 -p 8022"
+echo -e "\e[5;92mVolta para menu-inicial s/n?"
+read s
+elif [ "$s" = "s" ]; then 
+menu
+else
+echo "saindo.."
+exit 
+fi
+if [ "$res" = "3" ]; then
+exit
+fi
+}
+menu
