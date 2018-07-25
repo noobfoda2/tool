@@ -10,6 +10,8 @@ echo -e "\e[5;96m   2- instalar OpenSsh"
 echo -e "\e[5;92m   3- Sair"
 echo -e -n "\e[5;92m \n >>>  "
 read res
+case $res in
+"1")
 if [ "$res" = "1" ]; then
 clear
 echo -e "\n\e[5;93m Baixando Kali-Basic..."
@@ -34,8 +36,11 @@ elif [ "$s" = "s" ]; then
 menu
 else
 echo "saindo.."
-exit 
-elif [ "$res" = "2" ]; then
+exit
+fi
+;;
+"2")
+if [ "$res" = "2" ]; then
 clear
 apt-get update && apt-get -y upgrade && apt-get install -y openssh && sleep 3 && clear
 echo -e "\n\e[5;91m Aceite a permissao de acesso ao armazenamento\n"
@@ -54,9 +59,12 @@ elif [ "$s" = "s" ]; then
 menu
 else
 echo "saindo.."
-exit 
-elif [ "$res" = "3" ]; then
 exit
 fi
+"3")
+if [ "$res" = "3" ]; then
+exit
+fi
+esac
 }
 menu
