@@ -14,7 +14,8 @@ case $res in
 "1")
 clear
 echo -e "\n\e[5;93m Baixando Kali-Basic..."
-echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB \n"
+echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB "
+echo -e "\n\e[5;91m Pra sair \e[5;96m CTRL+c\n"
 wget -c http://download1394.mediafire.com/owgvpr0vrewg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2
 echo -e "\n\e[5;92m  Download Concluindo.."
 sleep 2 && clear
