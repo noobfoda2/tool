@@ -8,15 +8,14 @@
 <h3> Apache2 </h3>
 <h3> Atscan </h3>
 <h3> Sqlmap </h3>
-<h4> Alguns pacotes Tiveram umas pequenas modificações pra si adaptar com o Termux!
-modo de usar:: </h4>
-<h4>
-pkg install git -y;git clone https://github.com/noobfoda2/tool;cd tool;chmod +x kali;bash kali
-</4>
-<4>
-grupo no telegram :: http://t.me/nethunter01
+<h4> Alguns pacotes Tiveram umas pequenas modificações pra si adaptar com o Termux! </h4>
+<h4> modo de usar:: </h4>
 
-@NoobFoda2 </h4>
+<h4> pkg install git -y;git clone https://github.com/noobfoda2/tool;cd tool;chmod +x kali;bash kali </h4>
+
+<h4> grupo no telegram :: http://t.me/nethunter01 </4>
+
+<h4> @NoobFoda2 </h4>
 
 <h2> MENU </h2>
 
