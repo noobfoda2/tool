@@ -59,8 +59,10 @@ else
 echo "saindo.."
 exit
 fi
+;;
 "3")
 exit
+;;
 esac
 }
 menu
