@@ -12,9 +12,8 @@
 modo de usar:: </h4>
 <h4>
 pkg install git -y;git clone https://github.com/noobfoda2/tool;cd tool;chmod +x kali;bash kali
-
-
-
+</4>
+<4>
 grupo no telegram :: http://t.me/nethunter01
 
 @NoobFoda2 </h4>
