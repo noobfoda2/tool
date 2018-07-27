@@ -20,9 +20,10 @@ wget -c --quiet --show-progress  http://download1394.mediafire.com/bae2d1gafcrg/
 echo -e "\n\e[5;92m  Download Concluindo.."
 sleep 2 && clear
 echo -e -n "\n\e[5;93mExtraindo !! Tempo do Processo de 5 a 10 minutos..\n"
-tar -vxjpf  kali-basic.tar.bz2 >> /dev/null
+tar -xpf kali-basic.tar.bz2
 rm kali-basic.tar.bz2
-mv kali-armhf /$HOME
+mv kali-armhf /$HOME && mv scraper.py /$HOME/kali-armhf/usr/share/set/src/web*/har*
+ln -s /storage/emulated/0 /$HOME/kali-armhf/sdcard
 echo -e "\n\e[5;92m Criando a sessao de login do kali.."
 sleep 2 && clear
 echo "
