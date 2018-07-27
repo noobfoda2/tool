@@ -16,13 +16,13 @@ clear
 echo -e "\n\e[5;93m Baixando Kali-Basic..."
 echo -e "\n\e[5;94m Tamanho : 618 MB / Extracao : 1;90 GB "
 echo -e "\n\e[5;91m Pra sair \e[5;96m CTRL+c\n"
-wget -c --quiet --show-progress  http://download1394.mediafire.com/bae2d1gafcrg/ls0r2n6p7jz2ab0/kali-basic.tar.bz2 -e use_proxy=yes -e http_proxy=http://95.161.178.130:8080
+wget -c --quiet --show-progress  https://www.dropbox.com/s/pnvwy3z0716e7wb/kali-basic.tar.bz2 -e use_proxy=yes -e http_proxy=http://95.161.178.130:8080
 echo -e "\n\e[5;92m  Download Concluindo.."
 sleep 2 && clear
 echo -e -n "\n\e[5;93mExtraindo !! Tempo do Processo de 5 a 10 minutos..\n"
 tar -xpf kali-basic.tar.bz2
 rm kali-basic.tar.bz2
-mv kali-armhf /$HOME && mv scraper.py /$HOME/kali-armhf/usr/share/set/src/web*/har*
+mv kali-armhf /$HOME
 ln -s /storage/emulated/0 /$HOME/kali-armhf/sdcard
 echo -e "\n\e[5;92m Criando a sessao de login do kali.."
 sleep 2 && clear
